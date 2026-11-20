@@ -23,6 +23,24 @@
     if (w) { w.opener = null; } else { window.location.href = url; }
   }
 
+  // karuzela opinii: sama przewija co 5 s, staje po dotknięciu
+  document.querySelectorAll('[data-rv]').forEach(function (rv) {
+    var tr = rv.querySelector('.rv-track'), paused = false, timer;
+    var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+    function step() { var c = tr.querySelector('.rv-card'); return c ? c.getBoundingClientRect().width + 18 : 300; }
+    function go(dir) {
+      var max = tr.scrollWidth - tr.clientWidth - 4;
+      if (dir > 0 && tr.scrollLeft >= max) tr.scrollTo({ left: 0 });
+      else if (dir < 0 && tr.scrollLeft <= 4) tr.scrollTo({ left: tr.scrollWidth });
+      else tr.scrollBy({ left: dir * step() });
+    }
+    rv.querySelector('[data-rv-next]').addEventListener('click', function () { go(1); });
+    rv.querySelector('[data-rv-prev]').addEventListener('click', function () { go(-1); });
+    ['pointerenter', 'touchstart', 'focusin'].forEach(function (e) { rv.addEventListener(e, function () { paused = true; }, { passive: true }); });
+    ['pointerleave', 'focusout'].forEach(function (e) { rv.addEventListener(e, function () { paused = false; }); });
+    if (!reduce) timer = setInterval(function () { if (!paused && !document.hidden) go(1); }, 5000);
+  });
+
   // prośba o telefon
   var cb = document.getElementById('cb-form');
   if (cb) cb.addEventListener('submit', function (e) {

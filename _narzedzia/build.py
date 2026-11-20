@@ -14,6 +14,20 @@ REVIEWS = "https://www.google.com/search?q=AdoZ+Auto+Elektryk+Samochodowy+Osieck
 ICON_PHONE = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>'
 MARK = '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#4fe3b0" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 13h4l2-6 3 12 3-9 2 3h6"/></svg>'
 
+# Opinie z Google, wpisane dosłownie: (autor, liczba gwiazdek, treść). Bez dat.
+OPINIE = []
+
+def karuzela():
+    if not OPINIE: return ""
+    import html as _h
+    cards = "".join(
+        '<figure class="rv-card"><div class="rv-stars" aria-label="%d na 5 gwiazdek">%s</div>'
+        '<blockquote><p>%s</p></blockquote><figcaption>%s</figcaption></figure>'
+        % (g, "★"*g, _h.escape(t).replace("\n","</p><p>"), _h.escape(a)) for a, g, t in OPINIE)
+    return ('<div class="rv" data-rv><div class="rv-track" tabindex="0" aria-label="Opinie klientów z Google">' + cards +
+            '</div><div class="rv-nav"><button type="button" class="rv-btn" data-rv-prev aria-label="Poprzednie opinie">←</button>'
+            '<button type="button" class="rv-btn" data-rv-next aria-label="Następne opinie">→</button></div></div>')
+
 NAV = [("diagnostyka-komputerowa.html","Diagnostyka"),("elektryka-samochodowa.html","Elektryka"),("klucze-samochodowe.html","Klucze"),("sterowniki-i-moduly.html","Sterowniki"),("realne-naprawy.html","Realne naprawy"),("kontakt.html","Kontakt")]
 
 SCHEMA = {
@@ -269,6 +283,7 @@ index = head("Elektryk samochodowy Osieck — diagnostyka komputerowa | AdoZ Aut
 <div><div class="score">5,0 <span class="stars" aria-label="5 na 5 gwiazdek">★★★★★</span></div><p>Średnia ocen naszych klientów w Google</p></div>
 <div class="btns"><a class="btn btn-wire" href="{REVIEWS}" rel="noopener" target="_blank">Zobacz opinie w Google</a></div>
 </div>
+{karuzela()}
 </div></section>
 
 <section id="zgloszenie"><div class="wrap">

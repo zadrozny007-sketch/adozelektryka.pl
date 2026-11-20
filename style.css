@@ -222,3 +222,17 @@ legend.step-title{font-weight:800;padding:0}
   .callbar .btn{padding:12px 10px;font-size:15px}
 }
 .form-note{font-size:13.5px;line-height:1.45;color:var(--ink-soft);margin:12px 0 0}
+/* karuzela opinii */
+.rv{margin-top:28px;position:relative}
+.rv-track{display:flex;gap:18px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;padding:4px 2px 8px;scrollbar-width:none}
+.rv-track::-webkit-scrollbar{display:none}
+.rv-card{flex:0 0 calc((100% - 36px)/3);scroll-snap-align:start;margin:0;background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:22px;display:flex;flex-direction:column}
+.rv-stars{color:var(--wire);font-size:20px;letter-spacing:2px}
+.rv-card blockquote{margin:10px 0 14px;flex:1}
+.rv-card blockquote p{margin:0 0 8px;font-size:16px;line-height:1.55}
+.rv-card figcaption{font-weight:700;font-size:15px}
+.rv-nav{display:flex;gap:10px;justify-content:flex-end;margin-top:10px}
+.rv-btn{width:44px;height:44px;border-radius:50%;border:1.5px solid var(--line);background:var(--card);font-size:20px;cursor:pointer;color:var(--ink)}
+.rv-btn:hover{border-color:var(--ink)}
+@media (max-width:900px){.rv-card{flex-basis:calc((100% - 18px)/2)}}
+@media (max-width:600px){.rv-card{flex-basis:86%}}
