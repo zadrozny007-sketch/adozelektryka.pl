@@ -57,6 +57,11 @@ def head(title, desc, path, extra=""):
 <meta property="og:title" content="{title}">
 <meta property="og:description" content="{desc}">
 <meta property="og:url" content="{canon}">
+<meta property="og:image" content="{DOMAIN}/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="AdoZ Auto, elektryk samochodowy w Osiecku, tel. 511 933 675">
+<meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#14251f">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="style.css">
