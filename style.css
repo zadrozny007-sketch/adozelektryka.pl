@@ -236,3 +236,20 @@ legend.step-title{font-weight:800;padding:0}
 .rv-btn:hover{border-color:var(--ink)}
 @media (max-width:900px){.rv-card{flex-basis:calc((100% - 18px)/2)}}
 @media (max-width:600px){.rv-card{flex-basis:86%}}
+/* przyciski wysyłki */
+.send-btns{display:flex;gap:10px;flex-wrap:wrap}
+.send-btns .btn{flex:1 1 auto;justify-content:center}
+.callback .send-btns .btn{flex:1 1 0}
+/* animacje */
+html .reveal{opacity:0;transform:translateY(22px);transition:opacity .6s ease,transform .6s cubic-bezier(.2,.7,.2,1)}
+html .reveal.in{opacity:1;transform:none}
+.hero h1,.hero .lead,.hero-actions,.hero-facts,.callback{animation:wejscie .7s cubic-bezier(.2,.7,.2,1) both}
+.hero .lead{animation-delay:.08s}.hero-actions{animation-delay:.16s}.hero-facts{animation-delay:.24s}.callback{animation-delay:.2s}
+@keyframes wejscie{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+.service,.btn,.rv-card{transition:transform .2s ease,box-shadow .2s ease,background-color .2s,border-color .2s}
+.service:hover{transform:translateY(-3px);box-shadow:0 14px 30px rgba(22,32,43,.10)}
+.btn:active{transform:scale(.97)}
+html{scroll-behavior:smooth}
+.trace path{stroke-dasharray:2600;stroke-dashoffset:2600;animation:sygnal 2.4s .3s ease-out forwards}
+@keyframes sygnal{to{stroke-dashoffset:0}}
+@media (prefers-reduced-motion:reduce){html .reveal{opacity:1;transform:none}.trace path{stroke-dashoffset:0}}

@@ -128,12 +128,12 @@ def footer():
 
 CALLBACK = f'''<form class="callback" id="cb-form" data-wa="{WA_NUM}" novalidate>
 <h2>Nie możesz się dodzwonić?</h2>
-<p>Zostaw numer. Otworzy się WhatsApp z gotową prośbą o telefon, a my oddzwonimy w godzinach pracy.</p>
+<p>Zostaw numer. Otworzy się SMS albo WhatsApp z gotową prośbą o telefon, a my oddzwonimy w godzinach pracy.</p>
 <div class="field"><label for="cb-imie">Imię</label><input id="cb-imie" type="text" name="imie" autocomplete="given-name"></div>
 <div class="field"><label for="cb-tel">Telefon</label><input id="cb-tel" type="tel" name="telefon" autocomplete="tel" inputmode="tel"></div>
 <p class="form-error" role="alert"></p>
-<button class="btn btn-dark" type="submit" style="width:100%">Poproś o telefon</button>
-<p class="form-note">Wiadomość wysyłasz sam przez WhatsApp. Strona niczego nie zapisuje.</p>
+<div class="send-btns"><button class="btn btn-dark" type="submit" name="kanal" value="sms">Wyślij SMS</button><button class="btn btn-line" type="submit" name="kanal" value="wa">WhatsApp</button></div>
+<p class="form-note">Wiadomość wysyłasz sam ze swojego telefonu. Strona niczego nie zapisuje.</p>
 </form>'''
 
 def chips(name, items):
@@ -169,21 +169,21 @@ TICKET = f'''<form class="ticket" id="ticket-form" data-wa="{WA_NUM}" novalidate
 
 <fieldset class="fs" hidden>
 <legend class="step-title">Jak się z Tobą skontaktować?</legend>
-<p class="step-sub">Krok 3 z 3. Na końcu otworzy się WhatsApp z gotową wiadomością. Wystarczy ją wysłać.</p>
+<p class="step-sub">Krok 3 z 3. Na końcu otworzy się SMS albo WhatsApp z gotową wiadomością. Wystarczy ją wysłać.</p>
 <div class="grid2">
 <div class="field"><label for="t-imie">Imię</label><input id="t-imie" type="text" name="imie" autocomplete="given-name"></div>
-<div class="field"><label for="t-tel">Telefon <span class="hint">(jeśli inny niż w WhatsAppie)</span></label><input id="t-tel" type="tel" name="telefon" autocomplete="tel" inputmode="tel"></div>
+<div class="field"><label for="t-tel">Telefon <span class="hint">(jeśli inny niż ten, z którego piszesz)</span></label><input id="t-tel" type="tel" name="telefon" autocomplete="tel" inputmode="tel"></div>
 </div>
 <p class="legend">Kiedy najlepiej dzwonić?</p>
 {radios("pora", ["Rano","W południe","Po południu","Obojętnie"])}
-<p class="form-note">Wiadomość wysyłasz sam przez WhatsApp. Strona niczego nie zapisuje. <a href="polityka-prywatnosci.html">Polityka prywatności</a></p>
+<p class="form-note">Wiadomość wysyłasz sam ze swojego telefonu. Strona niczego nie zapisuje. <a href="polityka-prywatnosci.html">Polityka prywatności</a></p>
 </fieldset>
 
 <p class="form-error" role="alert"></p>
 <div class="step-nav">
 <button class="btn btn-line" type="button" data-back>Wstecz</button>
 <button class="btn btn-dark" type="button" data-next>Dalej</button>
-<button class="btn btn-wire" type="submit" data-send hidden>Wyślij przez WhatsApp</button>
+<div class="send-btns" data-send hidden><button class="btn btn-wire" type="submit" name="kanal" value="sms">Wyślij SMS</button><button class="btn btn-dark" type="submit" name="kanal" value="wa">WhatsApp</button></div>
 </div>
 </form>'''
 
@@ -616,7 +616,7 @@ write("kontakt.html", head("Kontakt — elektryk samochodowy Osieck | AdoZ Auto"
 <iframe class="map" title="Mapa dojazdu do AdoZ Auto" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=51.9662741,21.4246991&z=16&output=embed"></iframe>
 </div></section>
 <section class="alt" id="zgloszenie"><div class="wrap">
-<div class="section-head"><h2>Opisz usterkę</h2><p>Trzy krótkie kroki. Na końcu otworzy się WhatsApp z gotową wiadomością do nas.</p></div>
+<div class="section-head"><h2>Opisz usterkę</h2><p>Trzy krótkie kroki. Na końcu otworzy się SMS albo WhatsApp z gotową wiadomością do nas.</p></div>
 {TICKET}
 </div></section>
 ''' + footer())
@@ -628,13 +628,13 @@ write("polityka-prywatnosci.html", head("Polityka prywatności | AdoZ Auto","Pol
 <h2>Administrator danych</h2>
 <p>Administratorem danych osobowych jest AdoZ Auto Dawid Zadrożny, ul. Pilawska 11, 08-445 Osieck, NIP 5322117153. Kontakt: <a href="mailto:{MAIL}">{MAIL}</a>, tel. {TEL}.</p>
 <h2>Jakie dane zbieramy i po co</h2>
-<p>Formularze na stronie nie wysyłają danych na żaden serwer. Przygotowują tylko wiadomość, którą sam wysyłasz przez WhatsApp. Dopóki jej nie wyślesz, nic do nas nie trafia.</p>
+<p>Formularze na stronie nie wysyłają danych na żaden serwer. Przygotowują tylko wiadomość, którą sam wysyłasz SMS-em albo przez WhatsApp. Dopóki jej nie wyślesz, nic do nas nie trafia.</p>
 <p>Gdy piszesz, dzwonisz albo wysyłasz e-mail, dostajemy dane, które sam podajesz: imię, numer telefonu, informacje o samochodzie (marka, model, rok, VIN) oraz opis usterki. Używamy ich wyłącznie po to, żeby się z Tobą skontaktować, odpowiedzieć na zgłoszenie i umówić wizytę.</p>
 <p>Podstawą przetwarzania jest podjęcie działań na Twoje żądanie przed zawarciem umowy (art. 6 ust. 1 lit. b RODO) oraz nasz prawnie uzasadniony interes, czyli obsługa zapytań (art. 6 ust. 1 lit. f RODO).</p>
 <h2>Jak długo przechowujemy dane</h2>
 <p>Dane ze zgłoszeń przechowujemy przez czas potrzebny do obsługi sprawy, a jeśli nie dojdzie do naprawy, nie dłużej niż 12 miesięcy. Dane związane z wykonaną usługą przechowujemy tak długo, jak wymagają tego przepisy podatkowe.</p>
 <h2>Komu przekazujemy dane</h2>
-<p>Dane mogą trafić do firm, które technicznie obsługują kontakt i stronę: WhatsApp (Meta), dostawca poczty e-mail (Google) oraz GitHub, który utrzymuje stronę i zapisuje w logach technicznych adresy IP odwiedzających, żeby chronić serwis przed nadużyciami. Nie sprzedajemy danych i nie przekazujemy ich do celów marketingowych.</p>
+<p>Dane mogą trafić do firm, które technicznie obsługują kontakt i stronę: operator sieci komórkowej (przy SMS), WhatsApp (Meta), dostawca poczty e-mail (Google) oraz GitHub, który utrzymuje stronę i zapisuje w logach technicznych adresy IP odwiedzających, żeby chronić serwis przed nadużyciami. Nie sprzedajemy danych i nie przekazujemy ich do celów marketingowych.</p>
 <h2>Twoje prawa</h2>
 <p>Masz prawo do dostępu do swoich danych, ich sprostowania, usunięcia, ograniczenia przetwarzania, sprzeciwu oraz przeniesienia danych. Masz też prawo złożyć skargę do Prezesa Urzędu Ochrony Danych Osobowych. Podanie danych jest dobrowolne, ale bez numeru telefonu nie będziemy mogli się z Tobą skontaktować.</p>
 <h2>Pliki cookies i mapa</h2>

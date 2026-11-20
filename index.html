@@ -48,12 +48,12 @@
 </div>
 <form class="callback" id="cb-form" data-wa="48511933675" novalidate>
 <h2>Nie możesz się dodzwonić?</h2>
-<p>Zostaw numer. Otworzy się WhatsApp z gotową prośbą o telefon, a my oddzwonimy w godzinach pracy.</p>
+<p>Zostaw numer. Otworzy się SMS albo WhatsApp z gotową prośbą o telefon, a my oddzwonimy w godzinach pracy.</p>
 <div class="field"><label for="cb-imie">Imię</label><input id="cb-imie" type="text" name="imie" autocomplete="given-name"></div>
 <div class="field"><label for="cb-tel">Telefon</label><input id="cb-tel" type="tel" name="telefon" autocomplete="tel" inputmode="tel"></div>
 <p class="form-error" role="alert"></p>
-<button class="btn btn-dark" type="submit" style="width:100%">Poproś o telefon</button>
-<p class="form-note">Wiadomość wysyłasz sam przez WhatsApp. Strona niczego nie zapisuje.</p>
+<div class="send-btns"><button class="btn btn-dark" type="submit" name="kanal" value="sms">Wyślij SMS</button><button class="btn btn-line" type="submit" name="kanal" value="wa">WhatsApp</button></div>
+<p class="form-note">Wiadomość wysyłasz sam ze swojego telefonu. Strona niczego nie zapisuje.</p>
 </form>
 </div><svg class="trace" viewBox="0 0 1200 120" preserveAspectRatio="none" aria-hidden="true"><path d="M0 70 H140 L150 70 L158 22 L166 108 L174 70 H330 C350 70 352 40 372 40 S394 100 414 100 S436 40 456 40 S478 100 498 100 S520 70 540 70 H640 V28 H700 V100 H760 V28 H820 V100 H880 V70 H1010 L1020 70 L1028 22 L1036 108 L1044 70 H1200"/></svg></section>
 
@@ -149,21 +149,21 @@
 
 <fieldset class="fs" hidden>
 <legend class="step-title">Jak się z Tobą skontaktować?</legend>
-<p class="step-sub">Krok 3 z 3. Na końcu otworzy się WhatsApp z gotową wiadomością. Wystarczy ją wysłać.</p>
+<p class="step-sub">Krok 3 z 3. Na końcu otworzy się SMS albo WhatsApp z gotową wiadomością. Wystarczy ją wysłać.</p>
 <div class="grid2">
 <div class="field"><label for="t-imie">Imię</label><input id="t-imie" type="text" name="imie" autocomplete="given-name"></div>
-<div class="field"><label for="t-tel">Telefon <span class="hint">(jeśli inny niż w WhatsAppie)</span></label><input id="t-tel" type="tel" name="telefon" autocomplete="tel" inputmode="tel"></div>
+<div class="field"><label for="t-tel">Telefon <span class="hint">(jeśli inny niż ten, z którego piszesz)</span></label><input id="t-tel" type="tel" name="telefon" autocomplete="tel" inputmode="tel"></div>
 </div>
 <p class="legend">Kiedy najlepiej dzwonić?</p>
 <div class="chips"><label class="chip"><input type="radio" name="pora" value="Rano"><span>Rano</span></label><label class="chip"><input type="radio" name="pora" value="W południe"><span>W południe</span></label><label class="chip"><input type="radio" name="pora" value="Po południu"><span>Po południu</span></label><label class="chip"><input type="radio" name="pora" value="Obojętnie"><span>Obojętnie</span></label></div>
-<p class="form-note">Wiadomość wysyłasz sam przez WhatsApp. Strona niczego nie zapisuje. <a href="polityka-prywatnosci.html">Polityka prywatności</a></p>
+<p class="form-note">Wiadomość wysyłasz sam ze swojego telefonu. Strona niczego nie zapisuje. <a href="polityka-prywatnosci.html">Polityka prywatności</a></p>
 </fieldset>
 
 <p class="form-error" role="alert"></p>
 <div class="step-nav">
 <button class="btn btn-line" type="button" data-back>Wstecz</button>
 <button class="btn btn-dark" type="button" data-next>Dalej</button>
-<button class="btn btn-wire" type="submit" data-send hidden>Wyślij przez WhatsApp</button>
+<div class="send-btns" data-send hidden><button class="btn btn-wire" type="submit" name="kanal" value="sms">Wyślij SMS</button><button class="btn btn-dark" type="submit" name="kanal" value="wa">WhatsApp</button></div>
 </div>
 </form>
 </div></section>

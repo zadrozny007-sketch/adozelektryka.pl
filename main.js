@@ -17,10 +17,32 @@
   function clear(f) { f.querySelector('.form-error').classList.remove('show'); }
 
   // formularze nie wysyłają nic same: składają wiadomość i otwierają WhatsApp
-  function openWhatsApp(f, lines) {
-    var url = 'https://wa.me/' + digits(f.getAttribute('data-wa') || '') + '?text=' + encodeURIComponent(lines.join('\n'));
+  function openWhatsApp(f, lines, e) {
+    var num = digits(f.getAttribute('data-wa') || ''), text = encodeURIComponent(lines.join('\n'));
+    var kanal = e && e.submitter && e.submitter.value;
+    if (!kanal) kanal = matchMedia('(pointer: coarse)').matches ? 'sms' : 'wa';
+    // SMS: zapis „?&body=” działa i na iPhonie, i na Androidzie
+    var url = kanal === 'sms' ? 'sms:+' + num + '?&body=' + text : 'https://wa.me/' + num + '?text=' + text;
     // zwykłe przejście: na telefonie otwiera aplikację WhatsApp (nowa karta w iPhonie zostaje pusta)
     window.location.href = url;
+  }
+
+  // animacje: elementy pojawiają się przy przewijaniu
+  var reduceMotion = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if ('IntersectionObserver' in window && !reduceMotion) {
+    var sel = '.section-head, .service, .symptoms li, .steps li, .reasons > div, .reviews, .rv, .ticket, .contact-grid > *, .prose > *, .aside';
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) { if (en.isIntersecting) { var t = en.target; t.classList.add('in'); io.unobserve(t); setTimeout(function () { t.style.transitionDelay = ''; }, 1200); } });
+    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
+    document.querySelectorAll(sel).forEach(function (el) {
+      var i = Array.prototype.indexOf.call(el.parentNode.children, el);
+      el.style.transition = 'none';          // ukryj od razu, bez mignięcia
+      el.classList.add('reveal');
+      void el.offsetWidth;
+      el.style.transition = '';
+      el.style.transitionDelay = Math.min(i, 5) * 70 + 'ms';
+      io.observe(el);
+    });
   }
 
   // karuzela opinii: sama przewija co 5 s, staje po dotknięciu
@@ -51,7 +73,7 @@
     var lines = ['Dzień dobry, proszę o telefon w sprawie auta. Piszę ze strony adozelektryka.pl.'];
     if (imie) lines.push('Imię: ' + imie);
     lines.push('Telefon: ' + tel);
-    openWhatsApp(cb, lines);
+    openWhatsApp(cb, lines, e);
   });
 
   // zgłoszenie usterki krok po kroku
@@ -98,7 +120,7 @@
       var imie = val(tf, 'imie'); if (imie) lines.push('Imię: ' + imie);
       var tel = val(tf, 'telefon'); if (tel) lines.push('Telefon: ' + tel);
       var pora = checked(tf, 'pora'); if (pora.length) lines.push('Najlepiej dzwonić: ' + pora[0]);
-      openWhatsApp(tf, lines);
+      openWhatsApp(tf, lines, e);
     });
     show(0);
   }

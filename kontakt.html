@@ -53,7 +53,7 @@
 <iframe class="map" title="Mapa dojazdu do AdoZ Auto" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=51.9662741,21.4246991&z=16&output=embed"></iframe>
 </div></section>
 <section class="alt" id="zgloszenie"><div class="wrap">
-<div class="section-head"><h2>Opisz usterkę</h2><p>Trzy krótkie kroki. Na końcu otworzy się WhatsApp z gotową wiadomością do nas.</p></div>
+<div class="section-head"><h2>Opisz usterkę</h2><p>Trzy krótkie kroki. Na końcu otworzy się SMS albo WhatsApp z gotową wiadomością do nas.</p></div>
 <form class="ticket" id="ticket-form" data-wa="48511933675" novalidate>
 <div class="progress" aria-hidden="true"><span></span><span></span><span></span></div>
 
@@ -81,21 +81,21 @@
 
 <fieldset class="fs" hidden>
 <legend class="step-title">Jak się z Tobą skontaktować?</legend>
-<p class="step-sub">Krok 3 z 3. Na końcu otworzy się WhatsApp z gotową wiadomością. Wystarczy ją wysłać.</p>
+<p class="step-sub">Krok 3 z 3. Na końcu otworzy się SMS albo WhatsApp z gotową wiadomością. Wystarczy ją wysłać.</p>
 <div class="grid2">
 <div class="field"><label for="t-imie">Imię</label><input id="t-imie" type="text" name="imie" autocomplete="given-name"></div>
-<div class="field"><label for="t-tel">Telefon <span class="hint">(jeśli inny niż w WhatsAppie)</span></label><input id="t-tel" type="tel" name="telefon" autocomplete="tel" inputmode="tel"></div>
+<div class="field"><label for="t-tel">Telefon <span class="hint">(jeśli inny niż ten, z którego piszesz)</span></label><input id="t-tel" type="tel" name="telefon" autocomplete="tel" inputmode="tel"></div>
 </div>
 <p class="legend">Kiedy najlepiej dzwonić?</p>
 <div class="chips"><label class="chip"><input type="radio" name="pora" value="Rano"><span>Rano</span></label><label class="chip"><input type="radio" name="pora" value="W południe"><span>W południe</span></label><label class="chip"><input type="radio" name="pora" value="Po południu"><span>Po południu</span></label><label class="chip"><input type="radio" name="pora" value="Obojętnie"><span>Obojętnie</span></label></div>
-<p class="form-note">Wiadomość wysyłasz sam przez WhatsApp. Strona niczego nie zapisuje. <a href="polityka-prywatnosci.html">Polityka prywatności</a></p>
+<p class="form-note">Wiadomość wysyłasz sam ze swojego telefonu. Strona niczego nie zapisuje. <a href="polityka-prywatnosci.html">Polityka prywatności</a></p>
 </fieldset>
 
 <p class="form-error" role="alert"></p>
 <div class="step-nav">
 <button class="btn btn-line" type="button" data-back>Wstecz</button>
 <button class="btn btn-dark" type="button" data-next>Dalej</button>
-<button class="btn btn-wire" type="submit" data-send hidden>Wyślij przez WhatsApp</button>
+<div class="send-btns" data-send hidden><button class="btn btn-wire" type="submit" name="kanal" value="sms">Wyślij SMS</button><button class="btn btn-dark" type="submit" name="kanal" value="wa">WhatsApp</button></div>
 </div>
 </form>
 </div></section>
