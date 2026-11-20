@@ -19,8 +19,8 @@
   // formularze nie wysyłają nic same: składają wiadomość i otwierają WhatsApp
   function openWhatsApp(f, lines) {
     var url = 'https://wa.me/' + digits(f.getAttribute('data-wa') || '') + '?text=' + encodeURIComponent(lines.join('\n'));
-    var w = window.open(url, '_blank');
-    if (w) { w.opener = null; } else { window.location.href = url; }
+    // zwykłe przejście: na telefonie otwiera aplikację WhatsApp (nowa karta w iPhonie zostaje pusta)
+    window.location.href = url;
   }
 
   // karuzela opinii: sama przewija co 5 s, staje po dotknięciu
