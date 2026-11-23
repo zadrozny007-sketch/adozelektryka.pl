@@ -255,3 +255,8 @@ html{scroll-behavior:smooth}
 .trace path{stroke-dasharray:2600;stroke-dashoffset:2600;animation:sygnal 2.4s .3s ease-out forwards}
 @keyframes sygnal{to{stroke-dashoffset:0}}
 @media (prefers-reduced-motion:reduce){html .reveal{opacity:1;transform:none}.trace path{stroke-dashoffset:0}}
+.brands-box{margin-top:32px;padding:24px;border:1px solid rgba(0,0,0,.1);border-radius:14px;background:#fff}
+.brands-box h3{margin:0 0 6px}
+.brands-box p{margin:0 0 14px;color:#4b5563}
+.brands{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:8px}
+.brands li{padding:6px 12px;border-radius:999px;background:#eef2f0;font-weight:600;font-size:.95rem}

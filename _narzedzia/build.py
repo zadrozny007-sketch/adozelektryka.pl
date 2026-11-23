@@ -28,7 +28,11 @@ def karuzela():
             '</div><div class="rv-nav"><button type="button" class="rv-btn" data-rv-prev aria-label="Poprzednie opinie">←</button>'
             '<button type="button" class="rv-btn" data-rv-next aria-label="Następne opinie">→</button></div></div>')
 
-NAV = [("diagnostyka-komputerowa.html","Diagnostyka"),("elektryka-samochodowa.html","Elektryka"),("klucze-samochodowe.html","Klucze"),("sterowniki-i-moduly.html","Sterowniki"),("realne-naprawy.html","Realne naprawy"),("kontakt.html","Kontakt")]
+NAV = [("diagnostyka-komputerowa.html","Diagnostyka"),("elektryka-samochodowa.html","Elektryka"),("klucze-samochodowe.html","Klucze"),("sterowniki-i-moduly.html","Sterowniki"),("naprawa-adblue-dpf-egr.html","AdBlue i DPF"),("kontakt.html","Kontakt")]
+
+TOWNS = ["Osieck","Pilawa","Sobienie-Jeziory","Celestynów","Kołbiel","Wilga","Parysów","Garwolin","Siennica","Karczew","Otwock","Józefów","Góra Kalwaria","Łaskarzew","Maciejowice","Mińsk Mazowiecki"]
+TOWNS_TXT = "Pilawy, Sobień-Jezior, Celestynowa, Kołbieli, Wilgi, Parysowa, Garwolina, Siennicy, Karczewa, Otwocka, Józefowa, Góry Kalwarii, Łaskarzewa, Maciejowic i Mińska Mazowieckiego"
+BRANDS = ["Volkswagen","Audi","Skoda","Seat","Cupra","Ford","Peugeot","Citroën","Opel","Fiat","Jeep","Renault","Dacia","Toyota","Hyundai","Kia","BMW","Mercedes","Volvo","Nissan","Mazda","Honda"]
 
 SCHEMA = {
  "@context":"https://schema.org","@type":"AutoRepair","name":"AdoZ Auto — Elektryk Samochodowy Osieck",
@@ -37,8 +41,7 @@ SCHEMA = {
  "openingHoursSpecification":[
    {"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"08:00","closes":"18:00"},
    {"@type":"OpeningHoursSpecification","dayOfWeek":"Saturday","opens":"09:00","closes":"15:00"}],
- "areaServed":["Osieck","Pilawa","Kołbiel","Celestynów","Sobienie-Jeziory","Otwock","Karczew","Garwolin","Góra Kalwaria"],
- "priceRange":"$$","vatID":"PL5322117153"
+ "areaServed":TOWNS
 }
 
 def head(title, desc, path, extra=""):
@@ -94,7 +97,7 @@ def footer():
 <div class="cols">
 <div>
 <h2>AdoZ Auto</h2>
-<p>Elektryk samochodowy i diagnostyka komputerowa w Osiecku. Obsługujemy kierowców z Pilawy, Kołbieli, Celestynowa, Sobień-Jezior, Otwocka, Karczewa i Garwolina.</p>
+<p>Elektryk samochodowy i diagnostyka komputerowa w Osiecku. Auta wszystkich marek. Przyjeżdżają do nas kierowcy z {TOWNS_TXT}.</p>
 </div>
 <div>
 <h2>Usługi</h2>
@@ -109,7 +112,6 @@ def footer():
 <li><a href="naprawa-adblue-dpf-egr.html">Naprawa AdBlue, DPF i EGR</a></li>
 <li><a href="chiptuning.html">Chiptuning</a></li>
 <li><a href="dla-warsztatow.html">Dla warsztatów</a></li>
-<li><a href="realne-naprawy.html">Realne naprawy</a></li>
 </ul>
 </div>
 <div>
@@ -123,7 +125,7 @@ def footer():
 </ul>
 </div>
 </div>
-<div class="legal">AdoZ Auto Dawid Zadrożny, NIP 532-211-71-53. Wystawiamy faktury VAT. <a href="polityka-prywatnosci.html">Polityka prywatności</a></div>
+<div class="legal">AdoZ Auto Dawid Zadrożny, NIP 532-211-71-53. <a href="polityka-prywatnosci.html">Polityka prywatności</a></div>
 </div></footer>
 <div class="callbar"><a class="btn btn-wire" href="tel:{TEL_H}">{ICON_PHONE}Zadzwoń</a><a class="btn btn-dark" href="kontakt.html#zgloszenie">Zgłoś usterkę</a></div>
 <script src="main.js"></script>
@@ -214,15 +216,15 @@ index = head("Elektryk samochodowy Osieck — diagnostyka komputerowa | AdoZ Aut
 <section class="hero"><div class="wrap">
 <div>
 <h1>Elektryk samochodowy w Osiecku</h1>
-<p class="lead">Szukamy przyczyny usterki, a nie tylko kasujemy błędy. Diagnostyka komputerowa i oscyloskopowa, naprawy instalacji elektrycznej i problemy z komunikacją modułów sterujących.</p>
+<p class="lead">Szukamy przyczyny usterki, zamiast kasować błędy. Diagnostyka komputerowa i oscyloskopowa, instalacja elektryczna, moduły sterujące, sterowniki i klucze. Samochody wszystkich marek.</p>
 <div class="hero-actions">
 <a class="btn btn-wire" href="tel:{TEL_H}">{ICON_PHONE}Zadzwoń: {TEL}</a>
 <a class="btn btn-line" href="#zgloszenie">Opisz usterkę</a>
 </div>
 <ul class="hero-facts">
 <li><strong>5,0 ★</strong> w opiniach Google</li>
-<li><strong>Faktura VAT</strong> na każdą usługę</li>
-<li><strong>Soboty</strong> 9:00–15:00</li>
+<li><strong>Wszystkie marki</strong> aut osobowych</li>
+<li><strong>Pn–pt</strong> 8–18, <strong>sob.</strong> 9–15</li>
 </ul>
 </div>
 {CALLBACK}
@@ -248,6 +250,8 @@ index = head("Elektryk samochodowy Osieck — diagnostyka komputerowa | AdoZ Aut
 <a class="service" href="chiptuning.html">{ico(I_TUNE)}<h3>Chiptuning</h3><p>Zmiana oprogramowania sterownika na sprawnym aucie, z kopią oryginału.</p><span class="more">Więcej o chiptuningu</span></a>
 <a class="service" href="dla-warsztatow.html">{ico(I_SHOP)}<h3>Dla warsztatów</h3><p>Przejmujemy trudne usterki, sterowniki, klucze i kodowanie. Sterowniki można przysłać kurierem.</p><span class="more">Współpraca</span></a>
 </div>
+<div class="brands-box"><h3>Naprawiamy auta wszystkich marek</h3><p>Grupa VW i Ford w oprogramowaniu producenta, online. Stellantis i pozostałe marki testerami wielomarkowymi i pomiarami. Przy nietypowym modelu zadzwoń wcześniej.</p>
+<ul class="brands">{"".join("<li>%s</li>" % b for b in BRANDS)}<li>i inne</li></ul></div>
 </div></section>
 <section><div class="wrap">
 <div class="section-head"><h2>Z czym najczęściej przyjeżdżają do nas kierowcy</h2><p>Jeśli rozpoznajesz swój problem, zadzwoń. Większość z tych usterek ma przyczynę w instalacji, którą da się zmierzyć.</p></div>
@@ -269,7 +273,7 @@ index = head("Elektryk samochodowy Osieck — diagnostyka komputerowa | AdoZ Aut
 <li><h3>Opisujesz problem</h3><p>Telefonicznie albo przez formularz. Ustalamy termin przyjazdu.</p></li>
 <li><h3>Diagnozujemy</h3><p>Odczyt błędów, parametry na żywo, pomiary oscyloskopem i miernikiem.</p></li>
 <li><h3>Uzgadniamy zakres</h3><p>Mówimy, co jest uszkodzone i ile będzie kosztować naprawa. Decyzja należy do Ciebie.</p></li>
-<li><h3>Naprawiamy i sprawdzamy</h3><p>Po naprawie ponowny test. Dostajesz fakturę VAT.</p></li>
+<li><h3>Naprawiamy i sprawdzamy</h3><p>Po naprawie ponowny test, żeby mieć pewność, że usterka nie wróci.</p></li>
 </ol>
 </div></section>
 
@@ -278,7 +282,7 @@ index = head("Elektryk samochodowy Osieck — diagnostyka komputerowa | AdoZ Aut
 <div class="reasons">
 <div><h3>Diagnoza oparta na pomiarach</h3><p>Nie wymieniamy części na próbę. Sprawdzamy sygnały i przewody, zanim cokolwiek zamówimy.</p></div>
 <div><h3>Zakres i koszt przed naprawą</h3><p>O tym, co robimy, decydujesz Ty, po rozmowie z nami.</p></div>
-<div><h3>Faktura VAT</h3><p>Dla klientów prywatnych i firm.</p></div>
+<div><h3>Wszystkie marki</h3><p>Grupa VW, Ford, Stellantis i pozostałe marki. VW, Audi, Skodę, Seata i Forda obsługujemy w oprogramowaniu producenta, online.</p></div>
 <div><h3>Otwarte także w soboty</h3><p>Od poniedziałku do piątku 8:00–18:00, w sobotę 9:00–15:00.</p></div>
 </div>
 </div></section>
@@ -357,8 +361,7 @@ service("diagnostyka-komputerowa.html",
 <h2>Częste pytania</h2>
 <details><summary>Ile trwa diagnostyka?</summary><p>Zależy od usterki. Odczyt i wstępna ocena idą szybko. Usterki, które pojawiają się tylko czasami, wymagają dłuższych pomiarów. Przed rozpoczęciem mówimy, czego się spodziewać.</p></details>
 <details><summary>Czy po diagnostyce muszę naprawiać auto u Was?</summary><p>Nie. Dostajesz informację, co jest uszkodzone. Decyzja o naprawie należy do Ciebie.</p></details>
-<details><summary>Czy trzeba się wcześniej umówić?</summary><p>Tak, najlepiej zadzwonić. Ustalimy termin, żeby auto nie czekało.</p></details>
-<details><summary>Czy wystawiacie fakturę VAT?</summary><p>Tak, dla klientów prywatnych i firm.</p></details>""",
+<details><summary>Czy trzeba się wcześniej umówić?</summary><p>Tak, najlepiej zadzwonić. Ustalimy termin, żeby auto nie czekało.</p></details>""",
  "Diagnostyka komputerowa")
 
 service("elektryka-samochodowa.html",
@@ -385,8 +388,7 @@ service("elektryka-samochodowa.html",
 </ul>
 <h2>Częste pytania</h2>
 <details><summary>Czy nowy akumulator rozwiąże problem z rozładowaniem?</summary><p>Jeśli coś pobiera prąd na postoju, nowy akumulator też się rozładuje. Najpierw warto zmierzyć pobór prądu.</p></details>
-<details><summary>Czy naprawiacie instalację po montażu alarmu, haka lub radia?</summary><p>Tak. To częsta przyczyna usterek, bo dodatkowe urządzenie zostało wpięte w instalację w nieodpowiednim miejscu.</p></details>
-<details><summary>Czy wystawiacie fakturę VAT?</summary><p>Tak, dla klientów prywatnych i firm.</p></details>""",
+<details><summary>Czy naprawiacie instalację po montażu alarmu, haka lub radia?</summary><p>Tak. To częsta przyczyna usterek, bo dodatkowe urządzenie zostało wpięte w instalację w nieodpowiednim miejscu.</p></details>""",
  "Elektryka samochodowa")
 
 service("elektronika-moduly.html",
@@ -407,8 +409,7 @@ service("elektronika-moduly.html",
 </ul>
 <h2>Częste pytania</h2>
 <details><summary>Czy moduł trzeba wymienić na nowy?</summary><p>Często nie. Najpierw sprawdzamy zasilanie, masy i przewody. Dopiero gdy one są w porządku, przyczyną może być sam sterownik.</p></details>
-<details><summary>Czy da się naprawić auto po zalaniu?</summary><p>To zależy od tego, które elementy zostały zalane i jak długo. Trzeba obejrzeć i zmierzyć instalację.</p></details>
-<details><summary>Czy wystawiacie fakturę VAT?</summary><p>Tak, dla klientów prywatnych i firm.</p></details>""",
+<details><summary>Czy da się naprawić auto po zalaniu?</summary><p>To zależy od tego, które elementy zostały zalane i jak długo. Trzeba obejrzeć i zmierzyć instalację.</p></details>""",
  "Elektronika i moduły")
 
 # ---------- usługi specjalistyczne ----------
@@ -433,8 +434,7 @@ service("klucze-samochodowe.html",
 <h2>Częste pytania</h2>
 <details><summary>Co zabrać ze sobą?</summary><p>Dowód rejestracyjny, dowód osobisty i wszystkie klucze do auta, które masz, także te uszkodzone.</p></details>
 <details><summary>Dlaczego trzeba przywieźć wszystkie klucze?</summary><p>W wielu autach programowanie nowego klucza usuwa z pamięci te, których nie było przy programowaniu. Klucz, którego zabraknie, może przestać działać.</p></details>
-<details><summary>Zgubiłem wszystkie klucze. Jak dowieźć auto?</summary><p>Auto bez klucza trzeba przywieźć na lawecie. Zadzwoń najpierw, ustalimy, czy Twój model da się zrobić i kiedy.</p></details>
-<details><summary>Czy wystawiacie fakturę VAT?</summary><p>Tak, dla klientów prywatnych i firm.</p></details>""",
+<details><summary>Zgubiłem wszystkie klucze. Jak dowieźć auto?</summary><p>Auto bez klucza trzeba przywieźć na lawecie. Zadzwoń najpierw, ustalimy, czy Twój model da się zrobić i kiedy.</p></details>""",
  "Klucze samochodowe")
 
 service("sterowniki-i-moduly.html",
@@ -462,8 +462,7 @@ service("sterowniki-i-moduly.html",
 <p>Sterowniki z motocykli, samochodów ciężarowych, ciągników, łodzi i quadów. Możliwości zależą od konkretnego sterownika, dlatego najpierw podaj jego numer.</p>
 <h2>Częste pytania</h2>
 <details><summary>Czy muszę przyjechać autem?</summary><p>Nie zawsze. Przy klonowaniu często wystarczą oba sterowniki. Warsztaty mogą je przysłać kurierem, opis jest na stronie <a href="dla-warsztatow.html">Dla warsztatów</a>.</p></details>
-<details><summary>Ile to trwa?</summary><p>Zależy od sterownika. Po numerze powiemy, czego się spodziewać.</p></details>
-<details><summary>Czy wystawiacie fakturę VAT?</summary><p>Tak, dla klientów prywatnych i firm.</p></details>""",
+<details><summary>Ile to trwa?</summary><p>Zależy od sterownika. Po numerze powiemy, czego się spodziewać.</p></details>""",
  "Sterowniki i moduły")
 
 service("vag-diagnostyka-i-kodowanie.html",
@@ -485,8 +484,7 @@ service("vag-diagnostyka-i-kodowanie.html",
 <p>W nowszych autach grupy VW, mniej więcej od rocznika 2020, sterowniki są zabezpieczone przed zmianami. Żeby je zakodować, trzeba najpierw odblokować dostęp przez serwer producenta. Robimy to.</p>
 <h2>Częste pytania</h2>
 <details><summary>Czy zrobicie wszystko, co serwis marki?</summary><p>Większość. Kilka funkcji wymaga uprawnień, które producent daje tylko swoim serwisom, na przykład zdjęcie ochrony komponentów. Zadzwoń i powiedz, co trzeba zrobić. Powiemy przed przyjazdem.</p></details>
-<details><summary>Czy kodujecie inne marki?</summary><p>Tak. Fordy obsługujemy w oprogramowaniu producenta online, więcej na stronie <a href="ford-diagnostyka-i-programowanie.html">Ford</a>. Inne marki kodujemy po wymianie modułu, zakres zależy od marki i rocznika.</p></details>
-<details><summary>Czy wystawiacie fakturę VAT?</summary><p>Tak, dla klientów prywatnych i firm.</p></details>""",
+<details><summary>Czy kodujecie inne marki?</summary><p>Tak. Fordy obsługujemy w oprogramowaniu producenta online, więcej na stronie <a href="ford-diagnostyka-i-programowanie.html">Ford</a>. Pozostałe marki, w tym Peugeota, Citroëna, Opla i Fiata, diagnozujemy i kodujemy po wymianie modułu. Zakres zależy od marki i rocznika.</p></details>""",
  "VW, Audi, Skoda, Seat")
 
 service("naprawa-adblue-dpf-egr.html",
@@ -511,8 +509,7 @@ service("naprawa-adblue-dpf-egr.html",
 <p>Diagnostyka zaworu i jego sterowania, nastawy po wymianie.</p>
 <h2>Częste pytania</h2>
 <details><summary>Ile mogę jeszcze przejechać z błędem AdBlue?</summary><p>Tyle, ile pokazuje licznik na desce. Po dojściu do zera auto może nie odpalić. Zadzwoń, zanim do tego dojdzie.</p></details>
-<details><summary>Czy po naprawie auto przejdzie przegląd?</summary><p>Naprawiamy układy tak, żeby działały, jak przewidział producent.</p></details>
-<details><summary>Czy wystawiacie fakturę VAT?</summary><p>Tak, dla klientów prywatnych i firm.</p></details>""",
+<details><summary>Czy po naprawie auto przejdzie przegląd?</summary><p>Naprawiamy układy tak, żeby działały, jak przewidział producent.</p></details>""",
  "Naprawa AdBlue, DPF i EGR")
 
 service("ford-diagnostyka-i-programowanie.html",
@@ -534,8 +531,7 @@ service("ford-diagnostyka-i-programowanie.html",
 <li>błędy, których zwykły tester nie potrafi wyjaśnić.</li>
 </ul>
 <h2>Częste pytania</h2>
-<details><summary>Czy obsługujecie każdy model Forda?</summary><p>Zależy od modelu i rocznika. Zadzwoń i podaj model, rok i co trzeba zrobić.</p></details>
-<details><summary>Czy wystawiacie fakturę VAT?</summary><p>Tak, dla klientów prywatnych i firm.</p></details>""",
+<details><summary>Czy obsługujecie każdy model Forda?</summary><p>Zależy od modelu i rocznika. Zadzwoń i podaj model, rok i co trzeba zrobić.</p></details>""",
  "Ford")
 
 service("chiptuning.html",
@@ -554,13 +550,12 @@ service("chiptuning.html",
 <p>Chiptuning robimy na sprawnym aucie, z działającymi układami oczyszczania spalin. Zmiana mocy może mieć znaczenie dla gwarancji i ubezpieczenia, dlatego warto to sprawdzić przed decyzją.</p>
 <h2>Częste pytania</h2>
 <details><summary>Czy da się wrócić do oryginalnego oprogramowania?</summary><p>Tak. Przed zmianą zapisujemy kopię oryginału.</p></details>
-<details><summary>Ile mocy przybędzie?</summary><p>To zależy od silnika i jego stanu. Zadzwoń i podaj model, rok i silnik.</p></details>
-<details><summary>Czy wystawiacie fakturę VAT?</summary><p>Tak, dla klientów prywatnych i firm.</p></details>""",
+<details><summary>Ile mocy przybędzie?</summary><p>To zależy od silnika i jego stanu. Zadzwoń i podaj model, rok i silnik.</p></details>""",
  "Chiptuning")
 
 service("dla-warsztatow.html",
  "Dla warsztatów: sterowniki, klucze, kodowanie, trudne usterki | AdoZ Auto",
- "Współpraca z warsztatami: trudne usterki elektryczne, klonowanie sterowników i modułów, klucze, kodowanie VAG. Sterowniki można przysłać kurierem. Faktura VAT.",
+ "Współpraca z warsztatami: trudne usterki elektryczne, klonowanie sterowników i modułów, klucze, kodowanie VAG i Ford. Sterowniki można przysłać kurierem.",
  "Dla warsztatów",
  "Trudna usterka elektryczna, sterownik, klucz albo kodowanie, którego nie robicie u siebie? Przyjmujemy zlecenia od innych warsztatów.",
  """<h2>Co możemy przejąć</h2>
@@ -569,7 +564,7 @@ service("dla-warsztatow.html",
 <li><strong>Sterowniki silnika i skrzyni</strong>: klonowanie, odczyt i zapis, odzyskiwanie po nieudanym programowaniu.</li>
 <li><strong>Moduły</strong>: BSI, BCM, licznik, odczyt pamięci, naprawa płytek.</li>
 <li><strong>Klucze i immobilizery.</strong></li>
-<li><strong>Kodowanie i adaptacje VW, Audi, Skody, Seata.</strong></li>
+<li><strong>Kodowanie i programowanie VW, Audi, Skody, Seata i Forda</strong> w oprogramowaniu producenta, online.</li>
 </ul>
 <h2>Sterownik kurierem</h2>
 <p>Sam sterownik albo moduł możecie przysłać. Auto nie musi do nas przyjeżdżać.</p>
@@ -581,13 +576,13 @@ service("dla-warsztatow.html",
 <li><strong>Odeślemy kurierem</strong> po wykonaniu usługi.</li>
 </ol>
 <h2>Rozliczenie</h2>
-<p>Faktura VAT na warsztat. Zakres i koszt ustalamy, zanim zaczniemy pracę.</p>
+<p>Zakres i koszt ustalamy, zanim zaczniemy pracę.</p>
 <p>Adres do wysyłki: AdoZ Auto, ul. Pilawska 11, 08-445 Osieck.</p>""",
  "Dla warsztatów")
 
 # ---------- realne naprawy ----------
 write("realne-naprawy.html", head("Realne naprawy — przykłady usterek elektrycznych | AdoZ Auto",
- "Opisy prawdziwych napraw z warsztatu AdoZ Auto w Osiecku: objawy, diagnoza i rozwiązanie usterek elektrycznych i elektroniki samochodowej.","realne-naprawy.html") + header("realne-naprawy.html") + f'''
+ "Opisy prawdziwych napraw z warsztatu AdoZ Auto w Osiecku: objawy, diagnoza i rozwiązanie usterek elektrycznych i elektroniki samochodowej.","realne-naprawy.html",'<meta name="robots" content="noindex">\n') + header("realne-naprawy.html") + f'''
 <section class="page-hero"><div class="wrap">
 <div class="crumbs"><a href="./">Strona główna</a> / Realne naprawy</div>
 <h1>Realne naprawy</h1><p>Prawdziwe przypadki z naszego warsztatu: objaw, przebieg diagnozy i co okazało się przyczyną. Jeśli masz podobny problem, możliwe, że już go znamy.</p>
@@ -651,7 +646,7 @@ write("polityka-prywatnosci.html", head("Polityka prywatności | AdoZ Auto","Pol
 write("favicon.svg", '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><rect width="32" height="32" rx="7" fill="#14251f"/><path d="M3 18h5l2.7-8 4 16 4-12 2.7 4H29" fill="none" stroke="#4fe3b0" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/></svg>')
 write("robots.txt", f"User-agent: *\nDisallow:\nSitemap: {DOMAIN}/sitemap.xml\n")
 write("CNAME", "adozelektryka.pl\n")
-pages = ["", "diagnostyka-komputerowa.html","elektryka-samochodowa.html","elektronika-moduly.html","klucze-samochodowe.html","sterowniki-i-moduly.html","vag-diagnostyka-i-kodowanie.html","ford-diagnostyka-i-programowanie.html","naprawa-adblue-dpf-egr.html","chiptuning.html","dla-warsztatow.html","realne-naprawy.html","kontakt.html","polityka-prywatnosci.html"]
-sm = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + "".join(f"<url><loc>{DOMAIN}/{p}</loc><lastmod>2026-11-20</lastmod></url>\n" for p in pages) + "</urlset>\n"
+pages = ["", "diagnostyka-komputerowa.html","elektryka-samochodowa.html","elektronika-moduly.html","klucze-samochodowe.html","sterowniki-i-moduly.html","vag-diagnostyka-i-kodowanie.html","ford-diagnostyka-i-programowanie.html","naprawa-adblue-dpf-egr.html","chiptuning.html","dla-warsztatow.html","kontakt.html","polityka-prywatnosci.html"]
+sm = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + "".join(f"<url><loc>{DOMAIN}/{p}</loc><lastmod>2026-11-23</lastmod></url>\n" for p in pages) + "</urlset>\n"
 write("sitemap.xml", sm)
 print("ok")
