@@ -109,6 +109,7 @@ def footer():
 <li><a href="sterowniki-i-moduly.html">Sterowniki silnika i moduły</a></li>
 <li><a href="vag-diagnostyka-i-kodowanie.html">VW, Audi, Skoda, Seat</a></li>
 <li><a href="ford-diagnostyka-i-programowanie.html">Ford</a></li>
+<li><a href="stellantis-diagnostyka-i-programowanie.html">Peugeot, Citroën, Opel, Fiat</a></li>
 <li><a href="naprawa-adblue-dpf-egr.html">Naprawa AdBlue, DPF i EGR</a></li>
 <li><a href="chiptuning.html">Chiptuning</a></li>
 <li><a href="dla-warsztatow.html">Dla warsztatów</a></li>
@@ -245,12 +246,12 @@ index = head("Elektryk samochodowy Osieck — diagnostyka komputerowa | AdoZ Aut
 <div class="services">
 <a class="service" href="klucze-samochodowe.html">{ico(I_KEY)}<h3>Klucze i immobilizery</h3><p>Zapasowy klucz i pilot, klucze bezkluczykowe. Także gdy zgubiłeś wszystkie klucze.</p><span class="more">Więcej o kluczach</span></a>
 <a class="service" href="sterowniki-i-moduly.html">{ico(I_MOD)}<h3>Sterowniki silnika i moduły</h3><p>Używany sterownik i auto nie odpala? Klonowanie sterowników silnika, skrzyni, BSI i BCM.</p><span class="more">Więcej o sterownikach</span></a>
-<a class="service" href="vag-diagnostyka-i-kodowanie.html">{ico(I_DIAG)}<h3>VW, Audi, Skoda, Seat i Ford</h3><p>Diagnostyka, kodowanie i programowanie w oprogramowaniu producenta, online.</p><span class="more">Więcej o VAG</span></a>
+<a class="service" href="vag-diagnostyka-i-kodowanie.html">{ico(I_DIAG)}<h3>VAG, Ford i Stellantis</h3><p>Diagnostyka, kodowanie i programowanie w oprogramowaniu producenta, online. VW, Audi, Skoda, Seat, Ford, Peugeot, Citroën, Opel, Fiat, Jeep.</p><span class="more">Więcej o VAG</span></a>
 <a class="service" href="naprawa-adblue-dpf-egr.html">{ico(I_GAS)}<h3>Naprawa AdBlue, DPF i EGR</h3><p>Błędy układu SCR, pompa AdBlue, regeneracja i czyszczenie filtra DPF.</p><span class="more">Więcej o naprawie</span></a>
 <a class="service" href="chiptuning.html">{ico(I_TUNE)}<h3>Chiptuning</h3><p>Zmiana oprogramowania sterownika na sprawnym aucie, z kopią oryginału.</p><span class="more">Więcej o chiptuningu</span></a>
 <a class="service" href="dla-warsztatow.html">{ico(I_SHOP)}<h3>Dla warsztatów</h3><p>Przejmujemy trudne usterki, sterowniki, klucze i kodowanie. Sterowniki można przysłać kurierem.</p><span class="more">Współpraca</span></a>
 </div>
-<div class="brands-box"><h3>Naprawiamy auta wszystkich marek</h3><p>Grupa VW i Ford w oprogramowaniu producenta, online. Stellantis i pozostałe marki testerami wielomarkowymi i pomiarami. Przy nietypowym modelu zadzwoń wcześniej.</p>
+<div class="brands-box"><h3>Naprawiamy auta wszystkich marek</h3><p>Grupa VW, Ford i Stellantis w oprogramowaniu producenta, online: <a href="vag-diagnostyka-i-kodowanie.html">VAG</a>, <a href="ford-diagnostyka-i-programowanie.html">Ford</a>, <a href="stellantis-diagnostyka-i-programowanie.html">Stellantis</a>. Pozostałe marki testerami wielomarkowymi i pomiarami. Przy nietypowym modelu zadzwoń wcześniej.</p>
 <ul class="brands">{"".join("<li>%s</li>" % b for b in BRANDS)}<li>i inne</li></ul></div>
 </div></section>
 <section><div class="wrap">
@@ -282,7 +283,7 @@ index = head("Elektryk samochodowy Osieck — diagnostyka komputerowa | AdoZ Aut
 <div class="reasons">
 <div><h3>Diagnoza oparta na pomiarach</h3><p>Nie wymieniamy części na próbę. Sprawdzamy sygnały i przewody, zanim cokolwiek zamówimy.</p></div>
 <div><h3>Zakres i koszt przed naprawą</h3><p>O tym, co robimy, decydujesz Ty, po rozmowie z nami.</p></div>
-<div><h3>Wszystkie marki</h3><p>Grupa VW, Ford, Stellantis i pozostałe marki. VW, Audi, Skodę, Seata i Forda obsługujemy w oprogramowaniu producenta, online.</p></div>
+<div><h3>Wszystkie marki</h3><p>Grupę VW, Forda i Stellantis (Peugeot, Citroën, Opel, Fiat, Jeep) obsługujemy w oprogramowaniu producenta, online. Pozostałe marki testerami wielomarkowymi.</p></div>
 <div><h3>Otwarte także w soboty</h3><p>Od poniedziałku do piątku 8:00–18:00, w sobotę 9:00–15:00.</p></div>
 </div>
 </div></section>
@@ -484,7 +485,7 @@ service("vag-diagnostyka-i-kodowanie.html",
 <p>W nowszych autach grupy VW, mniej więcej od rocznika 2020, sterowniki są zabezpieczone przed zmianami. Żeby je zakodować, trzeba najpierw odblokować dostęp przez serwer producenta. Robimy to.</p>
 <h2>Częste pytania</h2>
 <details><summary>Czy zrobicie wszystko, co serwis marki?</summary><p>Większość. Kilka funkcji wymaga uprawnień, które producent daje tylko swoim serwisom, na przykład zdjęcie ochrony komponentów. Zadzwoń i powiedz, co trzeba zrobić. Powiemy przed przyjazdem.</p></details>
-<details><summary>Czy kodujecie inne marki?</summary><p>Tak. Fordy obsługujemy w oprogramowaniu producenta online, więcej na stronie <a href="ford-diagnostyka-i-programowanie.html">Ford</a>. Pozostałe marki, w tym Peugeota, Citroëna, Opla i Fiata, diagnozujemy i kodujemy po wymianie modułu. Zakres zależy od marki i rocznika.</p></details>""",
+<details><summary>Czy kodujecie inne marki?</summary><p>Tak. Fordy obsługujemy w oprogramowaniu producenta online, więcej na stronie <a href="ford-diagnostyka-i-programowanie.html">Ford</a>. Marki Stellantis, czyli Peugeota, Citroëna, Opla, Fiata i Jeepa, również w oprogramowaniu producenta, więcej na stronie <a href="stellantis-diagnostyka-i-programowanie.html">Stellantis</a>. Pozostałe marki kodujemy po wymianie modułu, zakres zależy od marki i rocznika.</p></details>""",
  "VW, Audi, Skoda, Seat")
 
 service("naprawa-adblue-dpf-egr.html",
@@ -534,6 +535,29 @@ service("ford-diagnostyka-i-programowanie.html",
 <details><summary>Czy obsługujecie każdy model Forda?</summary><p>Zależy od modelu i rocznika. Zadzwoń i podaj model, rok i co trzeba zrobić.</p></details>""",
  "Ford")
 
+service("stellantis-diagnostyka-i-programowanie.html",
+ "Diagnostyka i programowanie Peugeot, Citroën, Opel, Fiat online Osieck | AdoZ Auto",
+ "Peugeot, Citroën, DS, Opel, Fiat, Alfa Romeo, Jeep w oprogramowaniu producenta Stellantis, online. Diagnostyka, programowanie i aktualizacje sterowników, konfiguracja modułów po wymianie. Osieck, Otwock, Garwolin.",
+ "Diagnostyka i programowanie Stellantis",
+ "Peugeot, Citroën, DS, Opel, Fiat, Alfa Romeo, Lancia i Jeep. Pracujemy w oprogramowaniu producenta, online, przez interfejs pass-thru.",
+ """<h2>Co robimy</h2>
+<ul>
+<li><strong>Diagnostyka</strong> wszystkich sterowników w oprogramowaniu producenta.</li>
+<li><strong>Programowanie sterowników</strong> przez serwer Stellantis.</li>
+<li><strong>Aktualizacje oprogramowania</strong> sterowników.</li>
+<li><strong>Moduł po wymianie.</strong> Nowy lub używany sterownik, BSI czy BCM często nie zadziała, dopóki nie zostanie zaprogramowany i skonfigurowany pod konkretne auto.</li>
+</ul>
+<h2>Kiedy warto przyjechać</h2>
+<ul>
+<li>wymieniony moduł nie działa albo zgłasza błąd konfiguracji,</li>
+<li>usterka, którą producent usuwa aktualizacją oprogramowania,</li>
+<li>błędy, których zwykły tester nie potrafi wyjaśnić.</li>
+</ul>
+<h2>Częste pytania</h2>
+<details><summary>Czy obsługujecie każdy model?</summary><p>Zależy od modelu i rocznika. Zadzwoń i podaj markę, model, rok i co trzeba zrobić.</p></details>
+<details><summary>A inne marki?</summary><p>Grupę VW i Forda też obsługujemy w oprogramowaniu producenta: <a href="vag-diagnostyka-i-kodowanie.html">VW, Audi, Skoda, Seat</a> i <a href="ford-diagnostyka-i-programowanie.html">Ford</a>. Pozostałe marki diagnozujemy testerami wielomarkowymi i pomiarami.</p></details>""",
+ "Stellantis")
+
 service("chiptuning.html",
  "Chiptuning Osieck, Otwock, Garwolin | AdoZ Auto",
  "Chiptuning, czyli zmiana oprogramowania sterownika silnika. Kopia oryginalnego oprogramowania przed zmianą, możliwość powrotu do ustawień seryjnych. Osieck i okolice.",
@@ -555,7 +579,7 @@ service("chiptuning.html",
 
 service("dla-warsztatow.html",
  "Dla warsztatów: sterowniki, klucze, kodowanie, trudne usterki | AdoZ Auto",
- "Współpraca z warsztatami: trudne usterki elektryczne, klonowanie sterowników i modułów, klucze, kodowanie VAG i Ford. Sterowniki można przysłać kurierem.",
+ "Współpraca z warsztatami: trudne usterki elektryczne, klonowanie sterowników i modułów, klucze, kodowanie VAG, Ford i Stellantis. Sterowniki można przysłać kurierem.",
  "Dla warsztatów",
  "Trudna usterka elektryczna, sterownik, klucz albo kodowanie, którego nie robicie u siebie? Przyjmujemy zlecenia od innych warsztatów.",
  """<h2>Co możemy przejąć</h2>
@@ -564,7 +588,7 @@ service("dla-warsztatow.html",
 <li><strong>Sterowniki silnika i skrzyni</strong>: klonowanie, odczyt i zapis, odzyskiwanie po nieudanym programowaniu.</li>
 <li><strong>Moduły</strong>: BSI, BCM, licznik, odczyt pamięci, naprawa płytek.</li>
 <li><strong>Klucze i immobilizery.</strong></li>
-<li><strong>Kodowanie i programowanie VW, Audi, Skody, Seata i Forda</strong> w oprogramowaniu producenta, online.</li>
+<li><strong>Kodowanie i programowanie VW, Audi, Skody, Seata, Forda i marek Stellantis</strong> w oprogramowaniu producenta, online.</li>
 </ul>
 <h2>Sterownik kurierem</h2>
 <p>Sam sterownik albo moduł możecie przysłać. Auto nie musi do nas przyjeżdżać.</p>
@@ -646,7 +670,7 @@ write("polityka-prywatnosci.html", head("Polityka prywatności | AdoZ Auto","Pol
 write("favicon.svg", '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><rect width="32" height="32" rx="7" fill="#14251f"/><path d="M3 18h5l2.7-8 4 16 4-12 2.7 4H29" fill="none" stroke="#4fe3b0" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/></svg>')
 write("robots.txt", f"User-agent: *\nDisallow:\nSitemap: {DOMAIN}/sitemap.xml\n")
 write("CNAME", "adozelektryka.pl\n")
-pages = ["", "diagnostyka-komputerowa.html","elektryka-samochodowa.html","elektronika-moduly.html","klucze-samochodowe.html","sterowniki-i-moduly.html","vag-diagnostyka-i-kodowanie.html","ford-diagnostyka-i-programowanie.html","naprawa-adblue-dpf-egr.html","chiptuning.html","dla-warsztatow.html","kontakt.html","polityka-prywatnosci.html"]
+pages = ["", "diagnostyka-komputerowa.html","elektryka-samochodowa.html","elektronika-moduly.html","klucze-samochodowe.html","sterowniki-i-moduly.html","vag-diagnostyka-i-kodowanie.html","ford-diagnostyka-i-programowanie.html","stellantis-diagnostyka-i-programowanie.html","naprawa-adblue-dpf-egr.html","chiptuning.html","dla-warsztatow.html","kontakt.html","polityka-prywatnosci.html"]
 sm = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + "".join(f"<url><loc>{DOMAIN}/{p}</loc><lastmod>2026-11-23</lastmod></url>\n" for p in pages) + "</urlset>\n"
 write("sitemap.xml", sm)
 print("ok")
