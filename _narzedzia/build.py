@@ -36,7 +36,7 @@ BRANDS = ["Volkswagen","Audi","Skoda","Seat","Cupra","Ford","Peugeot","Citroën"
 
 SCHEMA = {
  "@context":"https://schema.org","@type":"AutoRepair","name":"AdoZ Auto — Elektryk Samochodowy Osieck",
- "url":DOMAIN+"/","telephone":TEL_H,"email":MAIL,
+ "url":DOMAIN+"/","logo":DOMAIN+"/icon-512.png","image":DOMAIN+"/og.png","telephone":TEL_H,"email":MAIL,
  "address":{"@type":"PostalAddress","streetAddress":"Pilawska 11","postalCode":"08-445","addressLocality":"Osieck","addressRegion":"mazowieckie","addressCountry":"PL"},
  "openingHoursSpecification":[
    {"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"08:00","closes":"18:00"},
@@ -66,7 +66,10 @@ def head(title, desc, path, extra=""):
 <meta property="og:image:alt" content="AdoZ Auto, elektryk samochodowy w Osiecku, tel. 511 933 675">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#14251f">
-<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/icon-192.png" type="image/png" sizes="192x192">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="stylesheet" href="style.css">
 <script type="application/ld+json">{json.dumps(SCHEMA, ensure_ascii=False)}</script>
 {extra}</head>
@@ -83,7 +86,7 @@ def header(path):
 <span>pon.–pt. 8:00–18:00, sob. 9:00–15:00</span>
 </div></div>
 <header class="site-header"><div class="wrap">
-<a class="brand" href="./"><span class="brand-mark">{MARK}</span><span><span class="brand-name">AdoZ Auto</span><span class="brand-sub">Elektryk samochodowy w Osiecku</span></span></a>
+<a class="brand" href="./"><span class="brand-mark">{MARK}</span><span><span class="brand-name">AdoZ Auto</span> <span class="brand-sub">Elektryk samochodowy w Osiecku</span></span></a>
 <button class="nav-toggle" aria-expanded="false" aria-controls="nav">Menu</button>
 <nav class="nav" id="nav" aria-label="Główne menu">{links}</nav>
 <a class="btn btn-dark header-call" href="tel:{TEL_H}">{ICON_PHONE}{TEL}</a>
